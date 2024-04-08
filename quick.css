@@ -1,0 +1,140 @@
+/**
+ * @name BasicBackground
+ * @description Allows you to use a Background Image without greatly altering the basic Layout of Discord
+ * @author DevilBro
+ * @version 1.0.5
+ * @authorId 278543574059057154
+ * @invite Jx3TjNS
+ * @donate https://www.paypal.me/MircoWittrien
+ * @patreon https://www.patreon.com/MircoWittrien
+ * @website https://mwittrien.github.io/
+ * @source https://github.com/mwittrien/BetterDiscordAddons/tree/master/Themes/BasicBackground/
+ * @updateUrl https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.theme.css
+ * 
+ * @var text				transparencycolor_s		"Transparency Color: [default] = 0, 0, 0"		0, 0, 0
+ * @var range				transparencyalpha_s		"Transparency Alpha: [default] = 0.15"			[0.15, 0, 1, 0.05]
+ * @var range				messagetransparency_s		"Messages: [default] = 0.5, 0 = No Boxes"		[0.5, 0, 1, 0.05]
+ * @var range				guildchanneltransparency_s	"Guilds/Channels: [default] = 0.15"			[0.15, 0, 1, 0.05]
+ * @var range				chatinputtransparency_s		"Chat Input: [default] = 0"				[0, 0, 1, 0.05]
+ * @var range				memberlisttransparency_s	"Memberlist: [default] = 0"				[0, 0, 1, 0.05]
+ * @var text				accentcolor_s			"Accent Color: [default] = 88, 101, 242"		190, 78, 180
+ * @var checkbox			settingsicons_s			"User Settings Icons"					1
+ * @var text				font_s				"General Font"						"gg sans", "Noto Sans"
+ * @var text				textshadow_s			"Text Shadow: [default] = rgba(0, 0, 0, 0)"		rgba(0, 0, 0, 0)
+ * @var text				background_s			"Background: Can be an Image/Color/Gradient"		url(https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/_res/background.jpg)
+ * @var select				backgroundposition_s		"Background Position"					["center*", "top", "right", "bottom", "left"]
+ * @var select				backgroundsize_s		"Background Size"					["cover*", "contain", "auto"]
+ * @var range				backgroundblur_s		"Background Blur"					[0, 0, 100, 1]
+ * @var text				popout_s			"Popups BG: Can be an Image/Color/Gradient"		var(--background)
+ * @var select				popoutposition_s		"Popups BG Position"					["center*", "top", "right", "bottom", "left"]
+ * @var select				popoutsize_s			"Popups BG Size"					["cover*", "contain", "auto"]
+ * @var range				popoutblur_s			"Popups BG Blur"					[0, 0, 100, 1]
+ * @var text				backdrop_s			"Backdrop BG: Can be an Image/Color/Gradient"		rgba(0, 0, 0, 0.85)
+ * @var select				backdropposition_s		"Backdrop BG Position"					["center*", "top", "right", "bottom", "left"]
+ * @var select				backdropsize_s			"Backdrop BG Size"					["cover*", "contain", "auto"]
+ * @var range				backdropblur_s			"Backdrop BG Blur"					[0, 0, 100, 1]
+ * @var text				textbrightest_s			"Text Color 1: [default] = 255, 255, 255"		255, 255, 255
+ * @var text				textbrighter_s			"Text Color 2: [default] = 222, 222, 222"		222, 222, 222
+ * @var text				textbright_s			"Text Color 3: [default] = 200, 200, 200"		200, 200, 200
+ * @var text				textdark_s			"Text Color 4: [default] = 160, 160, 160"		160, 160, 160
+ * @var text				textdarker_s			"Text Color 5: [default] = 125, 125, 125"		125, 125, 125
+ * @var text				textdarkest_s			"Text Color 6: [default] = 90, 90, 90"			90, 90, 90
+ */
+
+/* To change stuff like the colors, transparency and background image, change the variables inside the root {}, do NOT change the @import url() */
+
+@import url(https://mwittrien.github.io/BetterDiscordAddons/Themes/BasicBackground/BasicBackground.css);
+
+:root {
+	--transparencycolor:		0, 0, 0;			/* default: 0, 0, 0															*/
+	--transparencyalpha:		0.3;				/* default: 0.15				(general darkness of the app)								*/
+	--messagetransparency:		0.4;				/* default: 0.5					(additional shadows behind messages, set to 0 to remove boxes)				*/
+	--guildchanneltransparency:	0.6;				/* default: 0.15				(additional darkness for guild/channel list)						*/
+	--chatinputtransparency:	0.6;				/* default: 0.0					(additional darkness for chat input container)						*/
+	--memberlisttransparency:	0.6;				/* default: 0.0					(additional darkness for member list)							*/
+	--accentcolor:			190, 78, 180;			/* default: 190, 78, 180			(RGB-format - blurple: 88, 101, 242 bd-blue: 58, 113, 193)				*/
+	
+	--settingsicons:		1;				/* Use Settings Icons in User Settings: 1 = yes, 0 = no											*/
+	--font:				"gg sans", "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;		/* font used in most places														*/
+	--textshadow:			transparent;			/* default: transparent				(textshadow for text ontop of accentcolor nodes, ONLY accepts a color, no px)		*/
+	
+	--background:			url(https://64.media.tumblr.com/f6826b4a1d519a552723809b9610514d/532c874467444192-6c/s540x810/fbbcd3b547d3f867bccd8936bd0ea80d0c004bc0.pnj);	/* general background image					*/
+	--backgroundposition:		center;				/* default: center				(position of background - values: [center/top/right/bottom/left])			*/
+	--backgroundsize:		auto;				/* default: cover				(sizefit of background - values: [cover/contain/auto])					*/
+	--backgroundblur:		unset;				/* default: 0					(blur in px, only works when --background is set to an image)				*/
+	
+	--popout:			var(--background);		/* default: var(--background)			(change to use another background/color for modals/popouts)				*/
+	--popoutposition:		var(--backgroundposition);	/* default: center				(position of popout - values: [center/top/right/bottom/left])				*/
+	--popoutsize:			var(--backgroundsize);		/* default: cover				(sizefit of popout - values: [cover/contain/auto])					*/
+	--popoutblur:			var(--backgroundblur);		/* default: 0					(blur in px, only works when --popout is set to an image)				*/
+	
+	--backdrop:			rgba(0, 0, 0, 0.85);		/* default: rgba(0, 0, 0, 0.85)			(change to use another background/color for backdrops)					*/
+	--backdropposition:		center;				/* default: center				(position of backdrop - values: [center/top/right/bottom/left])				*/
+	--backdropsize:			cover;				/* default: cover				(sizefit of backdrop - values: [cover/contain/auto])					*/
+	--backdropblur:			unset;				/* default: 0					(blur in px, only works when --backdrop is set to an image)				*/
+	
+	--textbrightest: 		255, 255, 255;			/* default: 255, 255, 255			(text color for the brightest texts)							*/
+	--textbrighter: 		222, 222, 222;			/* default: 222, 222, 222			(text color for brighter texts)								*/
+	--textbright: 			200, 200, 200;			/* default: 200, 200, 200			(text color for bright texts)								*/
+	--textdark: 			160, 160, 160;			/* default: 160, 160, 160			(text color for dark texts)								*/
+	--textdarker: 			125, 125, 125;			/* default: 125, 125, 125			(text color for darker texts)								*/
+	--textdarkest: 			90, 90, 90;			/* default: 90, 90, 90				(text color for the darkest texts)							*/
+	
+	--version1_0_5:			none;				/* DO NOT CHANGE THIS VARIABLE , USED TO HIDE UPDATE NOTICE										*/
+}
+[class^="channelTextArea"]::before {
+    content: "";
+    width: 32px;
+    height: 32px;
+    bottom: calc(100% - 3px); /* Mess with the - 3px to change its vertical position */
+    right: 10px; /* Switch this from right to left to put it on the left side, or increase/decrease to change its position */
+    position: absolute;
+    image-rendering: pixelated;
+    background-image: url("https://raw.githubusercontent.com/adryd325/oneko.js/14bab15a755d0e35cd4ae19c931d96d306f99f42/oneko.gif");
+    animation: oneko 1s infinite; /* change 1s to make the animation slower/faster */
+}
+
+@keyframes oneko {
+    /*
+    if you open the background image in ur browser, you will see that it has way more frames
+    so if you want, you could make ur own keyframes for a different animation
+    the top left frame is 0 0, second top row is -32 0, second row second is -32 -32 and so on
+    the ...00001% makes it so that there's no transition between the frames, so if you wanted say 3 frames, you'd do 0%, 33.3%; 33.30001%, 66.6%; 66.60001%, 100%
+    */
+    0%, 50% {
+        background-position: -64px 0;
+    }
+    50.0001%, 100% {
+        background-position: -64px -32px;
+    }
+}
+/* begin custom loading animation */
+
+/* ALTERED FROM:
+* @name Shiggy loader
+* @author blisterexe
+* @description funny shiggy loading icon for discord 
+* @version 1.0
+*/
+
+:root .container__4bde3 > .content__0e954 {
+  position: relative;
+}
+:root .container__4bde3 > .content__0e954 .ready__61f2f {
+  display: none;
+}
+:root .container__4bde3 > .content__0e954 .ready__61f2f + .text__32559 {
+  top: 50px;
+}
+:root .container__4bde3 > .content__0e954::before {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  left: calc(50% - 100px);
+  width: 200px;
+  height: 200px;
+  background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a09197d9-eba7-4153-9b04-b7d0002e2633/ddkz8yx-7366e65e-4c9c-45e0-b427-c4579798c9e9.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2EwOTE5N2Q5LWViYTctNDE1My05YjA0LWI3ZDAwMDJlMjYzM1wvZGRrejh5eC03MzY2ZTY1ZS00YzljLTQ1ZTAtYjQyNy1jNDU3OTc5OGM5ZTkuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.egvOTPuujZklIxfv6mpK-6a-vFgaDz2t9RjDVx2A2Co") center/80% no-repeat !important;
+  image-rendering: pixelated;
+}
+
+/* end custom loading animation */
